@@ -41,11 +41,13 @@ public class Main {
         System.out.println("MASUKKAN PASSWORD ANDA: ");
         int masukpas= scanner.nextInt();
         if (masukid.equalsIgnoreCase(idcek)&& masukpas==(pascek)) {
-            System.out.println("<LOGIN BERHASIL>\n");
-            System.out.println("-----------------");
-            System.out.println(" MASUK SEBAGAI ? ");
-            System.out.println(" 1.MANAJER       ");
-            System.out.println(" 2.KASIER        ");
+            System.out.println("\nSTATUS:                                        ");
+            System.out.println("-------------");
+            System.out.println("               <LOGIN BERHASIL>              \n");
+            System.out.println("-----------------------------------------------");
+            System.out.println("                MASUK SEBAGAI ?                ");
+            System.out.println("                 1.MANAJER                     ");
+            System.out.println("                 2.KASIER                      ");
             System.out.println("-----------------");
             int pilihankarir= scanner.nextInt();
             switch (pilihankarir) {
@@ -75,12 +77,13 @@ public class Main {
         System.out.println("|------------------------------------------------------------|");
         System.out.println("|                      1.INFO MENU                           |");
         System.out.println("|                      2.TRANSAKSI                           |");
-        System.out.println("|                  3.LAKUKAN PEMBAYARAN                      |");
+        System.out.println("|                      3.LAKUKAN PEMBAYARAN                  |");
         System.out.println("|                      4.LAPORAN                             |");
         System.out.println("|                      5.KELUAR                              |");
-        System.out.println("|                                                            |");
+        System.out.println("|------------------------------------------------------------|");
         System.out.println("|                        PILIH                               |");
         System.out.println("--------------------------------------------------------------");
+        int option= scanner.nextInt();
     }
 }
     

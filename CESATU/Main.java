@@ -1,149 +1,136 @@
 package CESATU;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+
+    private static ArrayList<String> displayMenuList = new ArrayList<>();
+
     public static void main(String[] args) {
-        tampilanawal();
+        login();
     }
 
-    static void tampilanawal(){
-        Scanner scan= new Scanner(System.in);
-        System.out.println("------------------------------------------------------");
-        System.out.println("|------------ SELAMAT DATANG DI CESATU --------------|");
-        System.out.println("=                 1.LOGIN-                           =");
-        System.out.println("=                 2.REGISTER-                        =");
-        System.out.println("=                 3.KELUAR-                          =");
-        System.out.println("======================================================");
-        System.out.println("|               MASUKKAN PILIHAN                     |");
-        System.out.println("------------------------------------------------------");
-        int pilihan= scan.nextInt();
-        switch (pilihan) {
-            case 1:
-                loginmenu();
+    static void login() {
+        Scanner scanner = new Scanner(System.in);
+        String user = "Cesatu";
+        int sandi = 123123;
+        System.out.println("Username: ");
+        String cekuser = scanner.nextLine();
+        System.out.println("Password: ");
+        int ceksandi = scanner.nextInt();
+
+        if (user.equalsIgnoreCase(cekuser) && sandi == (ceksandi)) {
+            System.out.println("\nChoose :   ");
+            System.out.println("1. Program  ");
+            System.out.println("2. Exit     ");
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    Program();
+                    break;
+                case 2:
+                    System.out.println("--Thank you for your hard Work Today !--");
+                    break;
+                default:
+                    System.out.println("Choose option 1-2 !");
+                    break;
+            }
+        } else {
+            System.out.println("Login failed. Please check your username and password.");
+        }
+    }
+
+    static void Program() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("============================");
+        System.out.println("|        Welcome           |");
+        System.out.println("| Choose role:             |");
+        System.out.println("|         Manajer          |");
+        System.out.println("|         Kasir            |");
+        System.out.println("|         Admin            |");
+        System.out.println("============================");
+        System.out.println("Role yang dipilih: ");
+        String choose = scanner.nextLine();
+        switch (choose) {
+            case "Manajer":
+                menumanajer();
                 break;
-            // case 2:
-            // registermenu();
+            case "Kasir":
+                menukasir();
+                break;
             default:
-            System.out.println("Silahkan pilih menu 1-3 !");
+                System.out.println("Invalid choice. Please choose 'Manajer' or 'Kasir'.");
                 break;
         }
-    
     }
-    static void loginmenu(){
-        String idcek="Cesatu";
-        int pascek= 123123;
-        Scanner scanner= new Scanner(System.in);
 
-        boolean berhasillogin= false;
+    static void menumanajer() {
+        // Implementasi untuk peran Manajer
+        System.out.println("Welcome Manajer!");
+    }
 
-        while (!berhasillogin) {
-            System.out.println(" SILAHKAN MASUKKAN ID: ");
-            String cekid= scanner.nextLine();
-            System.out.println("MASUKKAN PASSWORD: ");
-            int cekpas= scanner.nextInt();
+    static void menukasir() {
+        Scanner scanner = new Scanner(System.in);
+        int menuChoice;
 
-            if (cekid.equalsIgnoreCase(idcek) && cekpas==(pascek)) {
-                System.out.println("\n Status : ");
-                System.out.println("          Berhasil login");
-                System.out.println("------------------------------------------");
-                System.out.println("               MASUK SEBAGAI              ");
-                System.out.println("              1. MANAJER                  ");
-                System.out.println("              2.KASIER                    ");
-                System.out.println("|----------------------------------------|");
-                int pilihkasir= scanner.nextInt();
+        do {
+            System.out.println("--------------------------");
+            System.out.println("|          MENU          |");
+            System.out.println("|   1. Display Menu      |");
+            System.out.println("|   2. Add Menu          |");
+            System.out.println("|   3. Pemesanan         |");
+            System.out.println("|   4. Transaksi         |");
+            System.out.println("|   5. Exit              |");
+            System.out.println("--------------------------");
+            System.out.println("Choose: ");
 
-                switch (pilihkasir) {
-                // case 1:
-                //      menumanajer();
-                //     break;
-                 case 2:
-                    menukasier();
+            menuChoice = scanner.nextInt();
+            scanner.nextLine();  // Consumes the newline character
+
+            switch (menuChoice) {
+                case 1:
+                    displayMenu();
                     break;
-                
-                    default:
-                    System.out.println(" Pilih dari 1-2 ! ");
-                    loginmenu();
-                        break;
-                }
-                berhasillogin= true;
-                
-            } else{
-                System.out.println("\n Status: ");
-                System.out.println("        <Login gagal>");
-                System.out.println("Apakah anda ingin mencoba lagi? (y/n)");
-                scanner.nextLine();
-                String cobalagi= scanner.nextLine();
+                case 2:
+                    addMenu();
+                    break;
+                case 3:
+                    rolepemesanan();
+                    break;
+                case 4:
+                    // Implementasi untuk transaksi
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please choose options 1-5.");
+                    break;
+            }
+        } while (menuChoice != 5);
+    }
 
-                if (!cobalagi.equalsIgnoreCase("ya")) {
-                    return;
-                    
-                }
+    static void displayMenu() {
+        System.out.println("----- Display Menu -----");
+        if (displayMenuList.isEmpty()) {
+            System.out.println("Menu is empty.");
+        } else {
+            for (int i = 0; i < displayMenuList.size(); i++) {
+                System.out.println((i + 1) + ". " + displayMenuList.get(i));
             }
         }
-       
-
-
     }
-    static void menukasier(){
-        Scanner scanner= new Scanner(System.in);
-        System.out.println("--------------------------------------------------------------");
-        System.out.println("|                       MENU KASIR                           |");
-        System.out.println("|------------------------------------------------------------|");
-        System.out.println("|                      1.INFO MENU                           |");
-        System.out.println("|                      2.TRANSAKSI                           |");
-        System.out.println("|                      3.LAKUKAN PEMBAYARAN                  |");
-        System.out.println("|                      4.LAPORAN                             |");
-        System.out.println("|                      5.KELUAR                              |");
-        System.out.println("|------------------------------------------------------------|");
-        System.out.println("|                        PILIH                               |");
-        System.out.println("--------------------------------------------------------------");
-        int option= scanner.nextInt();
-        switch (option) {
-            case 1:
-                infomenu();
-                break;
 
-                case 2:
-                transkasimenu();
-
-                break;
-
-                case 3:
-                lakukanpembayaran();
-
-                break;
-
-                case 4:
-                laporanksir();
-
-                break;
-
-                case 5:
-                System.out.println("Anda keluar dari program !");
-        
-            default:
-            System.out.println("SILAHKAN PILIH MENU 1-5");
-                break;
-                
-        }
-    }
-    static void infomenu(){
+    static void addMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("--------------------------------------------");
-        System.out.println("               TAMPILAN MENU                ");
-        
-        
+        System.out.println("Enter menu item: ");
+        String newItem = scanner.nextLine();
+        displayMenuList.add(newItem);
+        System.out.println("Menu item added successfully!");
     }
-    static void transkasimenu(){
 
-
-    }
-    static void lakukanpembayaran(){
-
-    }
-    static void laporanksir(){
-
+    static void rolepemesanan() {
+        // Implementasi untuk peran Kasir dalam pemrosesan pemesanan
+        System.out.println("Pemesanan...");
     }
 }
-    

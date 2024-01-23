@@ -1,69 +1,64 @@
 package Java;
 import java.util.Scanner;
-
 public class Main2 {
-   static void mainbrain(){
+
+    static void mainbrain(){
         Scanner sc= new Scanner(System.in);
-        //Preparation 
-        String namadepan;
-        String namabelakang;
-        
-        String pilihan1="KALKULATOR";
-        String pilihan2="LOGOUT";
-        
-
-        // Code brain
-        System.out.println(" Masukkan Nama depan anda: ");
-        namadepan=sc.nextLine();
-        System.out.println("Masukkan nama belakang anda: ");
-        namabelakang=sc.nextLine();
-
-        System.out.println("Nama anda adalah: ");
-        System.out.println(namadepan + namabelakang);
-
-        System.out.println("=======  MENU  =======");
-        System.out.println("|     KALKULATOR     |");
-        System.out.println("|       LOGOUT       |");
-        System.out.println("======================");
-        String pilihan= sc.nextLine();
-        if (pilihan.equalsIgnoreCase(pilihan1)) {
-            menukalkulator();
-            
-        }else{
-            System.out.println("Anda keluar dari Program !");
+        int option;
+        System.out.println("Selamat datang di input nama");
+        System.out.println("============================");
+        System.out.println("|          MENU            |");
+        System.out.println("|        1.LOGIN           |");
+        System.out.println("|        2.LOGOUT          |");
+        System.out.println("============================");
+        option=sc.nextInt();
+        switch (option) {
+                case 1:
+                loginmenu();
+                break;
+                case 2:
+                logoutmenu();
+                break; 
+            default:
+            System.out.println("Eror!");
+                break;
         }
-
+    }
+    static void loginmenu(){
+        Scanner scan= new Scanner(System.in);
+        String nama;
+        int passwordnya;
+        String ceknama="Axel";
+        int cekpass=050405;
+        System.out.println("Masukkan nama anda: ");
+        nama=scan.nextLine();
+        System.out.println("Masukkan password anda: ");
+        passwordnya=scan.nextInt();
+        if (nama.equalsIgnoreCase(ceknama)&& passwordnya==(cekpass)) {
+           menuinti();
+        
+        }else{
+            System.out.println(" Mohon maaf nama/pass anda mungkin salah, Silah kan login lagi !");
+        }
 
 
 
     }
-    static void menukalkulator(){
+    static void menuinti(){
         Scanner sc= new Scanner(System.in);
-        int angka1;
-        int angka2;
-        System.out.println("Masukkan angka pertama: ");
-        angka1=sc.nextInt();
-        System.out.println("Masukkan angka kedua: ");
-        angka2=sc.nextInt();
-        System.out.println("Pilih parameter: + - * % ");
-        String parameter= sc.nextLine();
-        switch (parameter) {
-            case "+":
-                System.out.println(angka1 + angka2);
-                break;
-            case "-":
-                System.out.println(angka1-angka2);
-                break;
-                case "*":
-                System.out.println(angka1 * angka2);
-                break;
-                case "%":
-                System.out.println(angka1 % angka2);
-                break;
+        int pilihanmu;
+        System.out.println("--------- SELAMAT DATANG ---------");
+        System.out.println("|        1.CEK ANGKA NAMA        |");
+        System.out.println("|        2.PERBESAR NAMA         |");
+        System.out.println("|        3.PERKECIL NAMA         |");
+        System.out.println("|        4.Keluar program        |");
+        System.out.println("==================================");
+        System.out.println("Masukkan pilihan: ");
+        pilihanmu= sc.nextInt();
         
-            default:
-            System.out.println("Eror");
-                break;
-        }
+    }
+
+    static void logoutmenu(){
+
     }
 }

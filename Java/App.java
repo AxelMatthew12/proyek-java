@@ -2,7 +2,6 @@ package Java;
 
 import java.util.Scanner;
 
-import javax.sound.midi.Soundbank;
 public class App {
     static void mainbrain (){
         Scanner sc= new Scanner(System.in);
@@ -53,7 +52,7 @@ public class App {
     static void Mainmenu(){
         Scanner sc= new Scanner(System.in);
         int choose;
-
+        
         System.out.println("===============================");
         System.out.println("||           MENU            ||");
         System.out.println("||   1.CEK NAMA TERDAFTAR    ||");
@@ -67,9 +66,9 @@ public class App {
             case 1:
                 NameRegister();
                 break;
-            // case 2:
-            //     SmartCalculator();
-            //     break;
+            case 2:
+                SmartCalculator();
+                break;
             // case 3:
             //     FinansialCek();
             //     break;
@@ -86,16 +85,73 @@ public class App {
     static void NameRegister(){
         Scanner sc= new Scanner(System.in);
         int optionchoose;
+        int alteroption;
+      
         System.out.println("=========== WELCOME ===========");
         System.out.println("||                           ||");
-        System.out.println("||       REGISTER MENU       ||");
-        System.out.println("||      1.NAME               ||");
-        System.out.println("||      2.PASSWORD           ||");
-        System.out.println("||     (U can freely choose) ||");
+        System.out.println("||         REGISTER          ||");
+        System.out.println("||         1.YES             ||");
+        System.out.println("||         2.NO              ||");
         System.out.println("===============================");
-        System.out.println("(Option : )                    ");
-        optionchoose= sc.nextInt();
-
+        System.out.println("||Option: ||");
+        optionchoose=sc.nextInt();
+       if (optionchoose==1) {
+        registeron();
+       }else{
+        System.out.println("====================");
+        System.out.println("||   1.LOGOUT     ||");
+        System.out.println("||   2.PREVIOUS   ||");
+        System.out.println("====================");
+        alteroption=sc.nextInt();
+        if (alteroption==1) {
+            System.out.println("ANDA TELAH KELUAR DARI PROGRAM...");
+        }else{
+            Mainmenu();
+        }
+       }
+    }
+    static void registeron(){
+        Scanner sc= new Scanner(System.in);
+        String nama;
+        String pass;
+        int option;
+        int kesempatan=2;
+        System.out.println("====================");
+        System.out.println("||      NAMA :    ||");
+        System.out.println("====================");
+        nama=sc.nextLine();
+        System.out.println("====================");
+        System.out.println("||    PASSWORD :  ||");
+        System.out.println("||   (NO NUMBER)  ||");
+        System.out.println("====================");
+        pass=sc.nextLine();
+        System.out.println("MAKA NAMA ANDA ADALAH: "+nama+" DAN PASSWORD ANDA:"+pass);
+        System.out.println("\n Option: ");
+        while ( kesempatan > 0) {
+            System.out.println("|| 1.back to main menu ||");
+        System.out.println("|| 2.back to login     ||");
+        option=sc.nextInt();
+        switch (option) {
+            case 1:
+            Mainmenu();
+            break;
+            case 2:
+            mainbrain();
+            break;
+            default:
+            kesempatan--;
+            System.out.println(" Mohon maaf pilihan anda tidak sesuai silahkan pilih option kembali: "+kesempatan);
+                break;
+               
+        }
+        if (kesempatan == 0) {
+            System.out.println("Anda telah melebihi batas percobaan !");
+        } 
+        }    
+        
+    }
+    static void SmartCalculator(){
+        
     }
     public static void main(String[] args) {
         mainbrain();

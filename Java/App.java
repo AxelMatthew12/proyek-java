@@ -317,6 +317,9 @@ public class App {
             double case3option2;
             double case4option1;
             double case4option2;
+            int option1;
+            int option2;
+            int option3;
             // generate code
             System.out.println("======================================");
             System.out.println("||       KALKULATOR DESINMAL        ||");
@@ -334,14 +337,37 @@ public class App {
                 double total=case1option+case1option2;
                 //result
                 System.out.println("Hasil = "+total);
+
+                System.out.println("\n==========================");
+                System.out.println("||          MENU          ||");
+                System.out.println("||  1.Back to calculator  ||");
+                System.out.println("||  2.Back to main menu   ||");
+                System.out.println("||  3.Back to login menu  ||");
+                System.out.println("============================");
+                option1=sc.nextInt();
+                switch (option1) {
+                    case 1:
+                        SmartCalculator();
+                        break;
+                    case 2:
+                        Mainmenu();
+                        break;
+                    case 3:
+                        mainbrain();
+                        break;
+                    default:
+                    System.out.println("Pilih sesuai option yang tersedia ! ...");
+                        break;
+                }
                 break;
                 case 2:
                 System.out.println("Masukkan angka pertama anda : ");
                 case2option1=sc.nextDouble();
                 System.out.println("Masukkan angka kedua anda   : ");
                 case2option2=sc.nextDouble();
-                
+                // main brain code
                 double totalkan=case2option1-case2option2;
+                // result
                 System.out.println("Hasil = "+totalkan);
                 break;
                 case 3:
@@ -349,7 +375,9 @@ public class App {
                 case3option1=sc.nextDouble();
                 System.out.println("Masukkan angka kedua anda   : ");
                 case3option2=sc.nextDouble();
+                // main brain
                 double totalkan1=case3option1*case3option2;
+                // result
                 System.out.println("Hasil = "+totalkan1);
                 break;
                 case 4:
@@ -357,7 +385,9 @@ public class App {
                 case4option1=sc.nextDouble();
                 System.out.println("Masukkan angka kedua anda   : ");
                 case4option2=sc.nextDouble();
+                // main brain
                 double totalkan2=case4option1/case4option2;
+                // result
                 System.out.println("Hasil = "+totalkan2);
                 break;
                 
@@ -369,6 +399,7 @@ public class App {
     }
     static void logout(){
         System.out.println("Anda keluar dari aplikasi ! ...");
+        
     }
     public static void main(String[] args) {
         mainbrain();

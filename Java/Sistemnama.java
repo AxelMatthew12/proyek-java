@@ -1,6 +1,6 @@
 package Java;
 import java.util.Scanner;
-public class Main2 {
+public class Sistemnama {
 
     static void mainbrain(){
         Scanner sc= new Scanner(System.in);

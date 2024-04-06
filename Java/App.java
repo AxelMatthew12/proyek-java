@@ -71,13 +71,13 @@ public class App {
             case 2:
                 SmartCalculator();
                 break;
-            // case 3:
-            //     FinansialCek();
-            //     break;
+            case 3:
+                FinansialCek();
+                break;
             // case 4:
             //     SceduleCek();
             //     break;
-
+        
         
             default:
             System.out.println(" Silahkan input lagi menu yang ingin di pilih!... ");
@@ -276,24 +276,7 @@ public class App {
                 angka3option6=sc.nextInt();
                 int angkatota4= angka3option5 / angka3option6;
                 System.out.println("Hasil = "+angkatota4);
-                System.out.println("===============================");
-                System.out.println("||           NAH             ||");
-                System.out.println("||   5.back ke menu awal     ||");
-                System.out.println("||   6.back ke mainmenu      ||");
-                System.out.println("||   7.back ke login         ||");
-                System.out.println("||===========================||");
-                desision=sc.nextInt();
-                switch (desision) {
-                    case 5:
-                    SmartCalculator();
-                    break;
-                    case 6:
-                    Mainmenu();
-                    break;
-                    case 7:
-                    mainbrain();
-                    break;
-                }
+                 alteroption();
                     
                 default:
                 System.out.println("Pilihlah seusai dengan option yang di miliki");
@@ -317,89 +300,100 @@ public class App {
             double case3option2;
             double case4option1;
             double case4option2;
-            int option1;
-            int option2;
-            int option3;
+            
             // generate code
             System.out.println("======================================");
             System.out.println("||       KALKULATOR DESINMAL        ||");
             System.out.println("||                                  ||");
             System.out.println("||Option:(+-*/) atau (1,2,3,4)      ||");
             System.out.println("||==================================||");
-            desision=sc.nextInt();
-            switch (desision) {
-                case 1:
+           desision=sc.nextInt();
+           switch (desision) {
+            case 1:
                 System.out.println("Masukkan angka pertama anda : ");
-                case1option=sc.nextDouble();
-                System.out.println("Masukkan angak kedua anda   : ");
-                case1option2=sc.nextDouble();
-                // brain calculate
-                double total=case1option+case1option2;
-                //result
-                System.out.println("Hasil = "+total);
-
-                System.out.println("\n==========================");
-                System.out.println("||          MENU          ||");
-                System.out.println("||  1.Back to calculator  ||");
-                System.out.println("||  2.Back to main menu   ||");
-                System.out.println("||  3.Back to login menu  ||");
-                System.out.println("============================");
-                option1=sc.nextInt();
-                switch (option1) {
-                    case 1:
-                        SmartCalculator();
-                        break;
-                    case 2:
-                        Mainmenu();
-                        break;
-                    case 3:
-                        mainbrain();
-                        break;
-                    default:
-                    System.out.println("Pilih sesuai option yang tersedia ! ...");
-                        break;
-                }
-                break;
-                case 2:
-                System.out.println("Masukkan angka pertama anda : ");
-                case2option1=sc.nextDouble();
+                case1option=sc.nextInt();
                 System.out.println("Masukkan angka kedua anda   : ");
-                case2option2=sc.nextDouble();
-                // main brain code
-                double totalkan=case2option1-case2option2;
+                case1option2=sc.nextInt();
+                // brain code
+                double total1=case1option+case1option2;
                 // result
-                System.out.println("Hasil = "+totalkan);
+                System.out.println("Hasil = "+total1);
+                alteroption();
                 break;
-                case 3:
-                System.out.println("Masukkan angka pertama anda : ");
-                case3option1=sc.nextDouble();
-                System.out.println("Masukkan angka kedua anda   : ");
-                case3option2=sc.nextDouble();
+            case 2:
+                System.out.println("Masukkan angka pertam anda  : ");
+                case2option1=sc.nextInt();
+                System.out.println("Masukkana angka kedua anda  : ");
+                case2option2=sc.nextInt();
                 // main brain
-                double totalkan1=case3option1*case3option2;
+                double total2= case2option1-case2option2;
                 // result
-                System.out.println("Hasil = "+totalkan1);
+                System.out.println("Hasil = "+total2);
+                alteroption();
                 break;
-                case 4:
+            case 3:
                 System.out.println("Masukkan angka pertama anda : ");
-                case4option1=sc.nextDouble();
+                case3option1=sc.nextInt();
                 System.out.println("Masukkan angka kedua anda   : ");
-                case4option2=sc.nextDouble();
+                case3option2=sc.nextInt();
                 // main brain
-                double totalkan2=case4option1/case4option2;
+                double total3= case3option1*case3option2;
                 // result
-                System.out.println("Hasil = "+totalkan2);
+                System.out.println("Hasil = "+total3);
+                alteroption();
                 break;
-                
-            
-                default:
-                System.out.println("Silahkan pilih option yang tertera ! ");
-                    break;
-            }
+            case 4:
+                System.out.println("Masukkan angka pertama anda : ");
+                case4option1=sc.nextInt();
+                System.out.println("Masukkan angka kedua anda   : ");
+                case4option2=sc.nextInt();
+                // main brain
+                double total4=case4option1/case4option2;
+                // result
+                System.out.println("Hasil = "+total4);
+                alteroption();
+                break;
+            default:
+                break;
+           }
+               
     }
     static void logout(){
         System.out.println("Anda keluar dari aplikasi ! ...");
         
+    }
+    static void alteroption(){
+        Scanner sc= new Scanner(System.in);
+        int option;
+        System.out.println("===============================");
+        System.out.println("||          PILIHAN          ||");
+        System.out.println("||    1.Back to login menu   ||");
+        System.out.println("||    2.Back to main menu    ||");
+        System.out.println("||    3.Back to previous menu||");
+        System.out.println("===============================");
+        option=sc.nextInt();
+        switch (option) {
+            case 1:
+                mainbrain();
+                break;
+                case 2:
+                Mainmenu();
+                break;
+                case 3:
+                SmartCalculator();
+                break;
+        
+            default:
+                break;
+        }
+    }
+    static void FinansialCek(){
+        System.out.println("================================");
+        System.out.println("||       SELAMAT DATANG       ||");
+        System.out.println("||                            ||");
+        System.out.println("||                            ||");
+        System.out.println("||                            ||");
+        System.out.println("================================");
     }
     public static void main(String[] args) {
         mainbrain();
